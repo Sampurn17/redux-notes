@@ -6,17 +6,22 @@ export const counterSlice = createSlice({
         value: 0
     },
     reducers:{
-        increment: ()=>{
+        increment: (state)=>{
             state.value +=1
 
         },
-        decrement:()=>{
+        decrement:(state)=>{
             state.value-=1
+
+        },
+        incrementByAmount:(state,actions)=>{
+           state.value+=actions.payload
 
         }
     }
 
 })
-
-export const {increment,decrement} = counterSlice.actions
+ 
+export const {increment,decrement,incrementByAmount} = counterSlice.actions
 export default counterSlice.reducer
+// this is exported with name counterReducer
